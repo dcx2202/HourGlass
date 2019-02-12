@@ -6,15 +6,20 @@ class Boundary
         this.w = w;
         this.h = h;
         this.a = a;
+        this.body = new Bodies.rectangle(x, y, w, h, {isStatic: true, angle: this.a});
+
+        World.add(world, this.body);
     }
 
     show()
     {
         colorMode(RGB);
-        fill(150);
+        noStroke();
+        fill(255);
         push();
-        translate(this.pos.x, this.pos.y);
+        translate(this.body.position.x, this.body.position.y);
         rotate(this.a);
+        rectMode(CENTER);
         rect(0, 0, this.w, this.h);
         pop();
     }

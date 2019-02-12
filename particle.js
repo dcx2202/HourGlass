@@ -1,20 +1,24 @@
 class Particle
 {
-    constructor(x, y, r, hue)
+    constructor(x, y, r)
     {
         this.pos = createVector(x, y);
         this.radius = r;
-        this.hue = hue;
+        this.hue = random(360);
+        this.body = new Bodies.circle(x, y, r, {friction: 0, restitution: 0});
+
+        World.add(world, this.body);
     }
 
     show()
     {
-        colorMode(HSB);
-        stroke(this.hue, 255, 255);
         push();
-        translate(this.pos.x, this.pos.y);
+        colorMode(HSB);
+        fill(this.hue, 255, 255);
+        stroke(this.hue, 255, 255);
+        translate(this.body.position.x, this.body.position.y);
         rotate(this.a);
-        rect(0, 0, this.w, this.h);
+        ellipse(0, 0, this.radius * 2);
         pop();
     }
 }
