@@ -70,11 +70,11 @@ function setup()
 
 
     // Left Side Bottom Ramp
-    boundary = new Boundary(width / 2 - 78, height / 2 - 64, 10, 210, 0.7);
+    boundary = new Boundary(width / 2 - 78, height * 0.2 + 328, 10, 210, 0.7);
     boundaries.push(boundary);
 
     // Right Side Bottom Ramp
-    boundary = new Boundary(width / 2 + 78, height / 2 - 64, 10, 210, -0.7);
+    boundary = new Boundary(width / 2 + 78, height * 0.2 + 328, 10, 210, -0.7);
     boundaries.push(boundary);
 
     add_Particles = true;
